@@ -1,6 +1,18 @@
 # Semantic Segmentation
+
+### Video Results
+https://youtu.be/uvFBhRQCAcw
+
 ### Introduction
-In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
+The goal in this project was to label the pixels in images using a Fully Convolutional Network (FCN), we used a pre-trained VGG 16 in this case. The process for building the FCN involved using 1x1 convolutions with tranpose convolutions to up-sample the image, also 2 skip layers were used to help give the FCN finer resolution. 
+
+Once the FCN could effectively label road pixels from non-road pixels the network was modified to handle 4 different classes, this code was modified in helper.py. Also a data set was downloaded that included a much larger variety of labels. This dataset was only 208 images however and 192 of those were used to train. Still waiting to get access to the much larger city scapes dataset, it will be interesting what the results look like after training on that.
+
+The main.py file was also modified so that it could process videos using a technique very similar to what was done in Term 1 with Advance Lane Finding. 4 different labels were used, which included road(green), car(blue), sidewalk(yellow), and other(no color). Important consideration for this project included initalizing the weights so that a regularizer was used to avoid over fitting. Also a good GPU was important for training large amounts of epochs, the results in the video used 110 epochs and on a Nvidia 1080 GTX and it only took about 40 minutes. 
+
+### Conclusion
+
+The FCN was able to generate nice results and mostly correctly classifed cars, and road, and even sidewalks. The network still needs work though, and should be trained on a much larger dataset. Only 192 images for training is barely scratching the surface, so it will be great to see how it performs once a larger dataset is aquired. 
 
 ### Setup
 ##### Frameworks and Packages
